@@ -94,11 +94,11 @@ const ChatBot = () => {
   const handleQuickAction = (action: string) => {
     switch (action) {
       case "products":
-        document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" });
+        window.location.href = "/#shop";
         setIsOpen(false);
         break;
       case "gallery":
-        document.getElementById("shop")?.scrollIntoView({ behavior: "smooth" });
+        window.location.href = "/gallery";
         setIsOpen(false);
         break;
       case "whatsapp":

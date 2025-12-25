@@ -14,10 +14,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "Shop", href: "#shop" },
-    { name: "About", href: "#about" },
-    { name: "Connect", href: "#connect" },
+    { name: "Home", href: "/" },
+    { name: "Shop", href: "/#shop" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "About", href: "/#about" },
+    { name: "Connect", href: "/#connect" },
   ];
 
   return (
@@ -31,7 +32,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="text-2xl md:text-3xl font-heading font-bold text-gradient">
+          <a href="/" className="text-2xl md:text-3xl font-heading font-bold text-gradient">
             Handmade Stories
           </a>
 
