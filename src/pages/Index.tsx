@@ -1,13 +1,39 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Helmet } from "react-helmet";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import ShopCategories from "@/components/ShopCategories";
+import FeaturedCreations from "@/components/FeaturedCreations";
+import ConnectSection from "@/components/ConnectSection";
+import Footer from "@/components/Footer";
+import ChatBot from "@/components/ChatBot";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <>
+      <Helmet>
+        <title>Handmade Stories | Unique Handcrafted Art & Creations</title>
+        <meta 
+          name="description" 
+          content="Discover unique handmade paintings, clay miniatures, paper crafts, and wooden art. Each piece is crafted with love and tells a beautiful story." 
+        />
+        <meta name="keywords" content="handmade art, paintings, clay miniatures, paper crafts, wooden handicrafts, handcrafted gifts" />
+        <link rel="canonical" href="https://handmadestories.com" />
+      </Helmet>
+      
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <main>
+          <HeroSection />
+          <AboutSection />
+          <ShopCategories />
+          <FeaturedCreations />
+          <ConnectSection />
+        </main>
+        <Footer />
+        <ChatBot />
       </div>
-    </div>
+    </>
   );
 };
 
