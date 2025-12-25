@@ -7,6 +7,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import Index from "./pages/Index";
 import Gallery from "./pages/Gallery";
 import NotFound from "./pages/NotFound";
+import PaintingsCollection from "./pages/collections/PaintingsCollection";
+import ClayMiniatures from "./pages/collections/ClayMiniatures";
+import PaperCrafts from "./pages/collections/PaperCrafts";
+import BottleArt from "./pages/collections/BottleArt";
+import WoodenCrafts from "./pages/collections/WoodenCrafts";
 import { pageVariants } from "./lib/animations";
 
 const queryClient = new QueryClient();
@@ -26,6 +31,11 @@ const AnimatedRoutes = () => {
         <Routes location={location}>
           <Route path="/" element={<Index />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/collections/paintings" element={<PaintingsCollection />} />
+          <Route path="/collections/clay-miniatures" element={<ClayMiniatures />} />
+          <Route path="/collections/paper-crafts" element={<PaperCrafts />} />
+          <Route path="/collections/bottle-art" element={<BottleArt />} />
+          <Route path="/collections/wooden-crafts" element={<WoodenCrafts />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </motion.div>
