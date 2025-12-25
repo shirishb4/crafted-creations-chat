@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { ScrollReveal, StaggerChildren, StaggerItem } from "@/lib/animations";
 import paintingsImg from "@/assets/paintings.jpg";
 import miniatureImg from "@/assets/miniature.jpg";
@@ -15,6 +16,7 @@ const categories = [
     image: paintingsImg,
     icon: "🎨",
     color: "bg-primary/10",
+    link: "/collections/paintings",
   },
   {
     id: 2,
@@ -23,6 +25,7 @@ const categories = [
     image: miniatureImg,
     icon: "🧸",
     color: "bg-secondary/20",
+    link: "/collections/clay-miniatures",
   },
   {
     id: 3,
@@ -31,6 +34,7 @@ const categories = [
     image: paperImg,
     icon: "✂️",
     color: "bg-rose/10",
+    link: "/collections/paper-crafts",
   },
   {
     id: 4,
@@ -39,6 +43,7 @@ const categories = [
     image: bottlesImg,
     icon: "♻️",
     color: "bg-sky/20",
+    link: "/collections/bottle-art",
   },
   {
     id: 5,
@@ -47,6 +52,7 @@ const categories = [
     image: woodCraftsImg,
     icon: "🪵",
     color: "bg-accent/20",
+    link: "/collections/wooden-crafts",
   },
 ];
 
@@ -78,48 +84,48 @@ const ShopCategories = () => {
         <StaggerChildren className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" staggerDelay={0.1}>
           {categories.map((category) => (
             <StaggerItem key={category.id}>
-              <motion.div
-                className="card-artisan group cursor-pointer h-full"
-                whileHover={{ y: -8 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="relative overflow-hidden">
-                  <motion.img
-                    src={category.image}
-                    alt={category.title}
-                    className="w-full h-64 object-cover"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.7 }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
+              <Link to={category.link}>
+                <motion.div
+                  className="card-artisan group cursor-pointer h-full"
+                  whileHover={{ y: -8 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="relative overflow-hidden">
+                    <motion.img
+                      src={category.image}
+                      alt={category.title}
+                      className="w-full h-64 object-cover"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.7 }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
+                    
+                    <motion.div 
+                      className={`absolute top-4 right-4 w-14 h-14 ${category.color} backdrop-blur-sm rounded-2xl flex items-center justify-center text-2xl shadow-soft`}
+                      whileHover={{ scale: 1.2, rotate: 10 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {category.icon}
+                    </motion.div>
+                  </div>
                   
-                  {/* Icon badge */}
-                  <motion.div 
-                    className={`absolute top-4 right-4 w-14 h-14 ${category.color} backdrop-blur-sm rounded-2xl flex items-center justify-center text-2xl shadow-soft`}
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {category.icon}
-                  </motion.div>
-                </div>
-                
-                <div className="p-6 space-y-4">
-                  <h3 className="text-2xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
-                    {category.title}
-                  </h3>
-                  <p className="text-muted-foreground font-body">
-                    {category.description}
-                  </p>
-                  <motion.button 
-                    className="inline-flex items-center gap-2 text-primary font-semibold font-body group/btn"
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    View Collection
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                  </motion.button>
-                </div>
-              </motion.div>
+                  <div className="p-6 space-y-4">
+                    <h3 className="text-2xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
+                      {category.title}
+                    </h3>
+                    <p className="text-muted-foreground font-body">
+                      {category.description}
+                    </p>
+                    <motion.span 
+                      className="inline-flex items-center gap-2 text-primary font-semibold font-body group/btn"
+                      whileHover={{ x: 5 }}
+                    >
+                      View Collection
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                    </motion.span>
+                  </div>
+                </motion.div>
+              </Link>
             </StaggerItem>
           ))}
         </StaggerChildren>
