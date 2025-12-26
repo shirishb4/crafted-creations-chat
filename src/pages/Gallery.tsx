@@ -7,8 +7,12 @@ import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import { ScrollReveal, StaggerChildren, StaggerItem } from "@/lib/animations";
 import paintingsImg from "@/assets/paintings.jpg";
+import painting1Img from "@/assets/painting-1.jpg";
 import miniatureImg from "@/assets/miniature.jpg";
+import miniature1Img from "@/assets/miniature-1.jpg";
+import miniature2Img from "@/assets/miniature-2.jpg";
 import paperImg from "@/assets/paper.jpg";
+import paper1Img from "@/assets/paper-1.jpg";
 import bottlesImg from "@/assets/bottles.jpg";
 import woodCraftsImg from "@/assets/wood-crafts.jpg";
 
@@ -79,7 +83,7 @@ const artworks: ArtworkItem[] = [
     title: "Winter Castle",
     category: "Clay Miniatures",
     categoryIcon: "🧸",
-    image: miniatureImg,
+    image: miniature1Img,
     materials: "Polymer clay, miniature snowman figurine",
     story: "A magical winter wonderland captured in clay. The cozy cottage with its snowy roof and friendly snowman brings the joy of winter indoors all year round.",
     size: "small",
@@ -89,7 +93,7 @@ const artworks: ArtworkItem[] = [
     title: "Floral Hearts",
     category: "Paper Crafts",
     categoryIcon: "✂️",
-    image: paperImg,
+    image: paper1Img,
     materials: "Premium cardstock, handcut petals",
     story: "Layers of carefully cut paper create these stunning 3D flower arrangements. Perfect as wall art or thoughtful handmade gifts for any occasion.",
     size: "medium",
@@ -99,10 +103,20 @@ const artworks: ArtworkItem[] = [
     title: "Soot Sprites Garden",
     category: "Clay Miniatures",
     categoryIcon: "🧸",
-    image: miniatureImg,
+    image: miniature2Img,
     materials: "Black polymer clay, purple flower accents",
     story: "Inspired by magical creatures, these adorable soot sprites frolic among delicate purple flowers. A touch of Studio Ghibli magic for your home.",
     size: "small",
+  },
+  {
+    id: 9,
+    title: "Sunset Dreams",
+    category: "Paintings",
+    categoryIcon: "🎨",
+    image: painting1Img,
+    materials: "Acrylic on canvas",
+    story: "A vibrant sunset painting that captures the magical transition from day to night. The warm oranges and cool purples create a sense of peace and wonder.",
+    size: "medium",
   },
 ];
 
