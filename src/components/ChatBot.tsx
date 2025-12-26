@@ -32,12 +32,16 @@ const ChatBot = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    }
   };
 
   useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+    if (isOpen && messages.length > 1) {
+      scrollToBottom();
+    }
+  }, [messages, isOpen]);
 
   const getBotResponse = (userMessage: string): string => {
     const lowerMessage = userMessage.toLowerCase();
