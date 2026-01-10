@@ -144,11 +144,23 @@ const BottleArt = () => {
                         <p className="text-background font-body text-sm">{art.materials}</p>
                       </div>
                     </div>
-                    <div className="p-5 space-y-2">
-                      <h3 className="text-xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
-                        {art.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground font-body">{art.size}</p>
+                    <div className="p-5 space-y-3">
+                      <div>
+                        <h3 className="text-xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
+                          {art.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground font-body">{art.size}</p>
+                      </div>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleWhatsAppEnquiry(art);
+                        }}
+                        className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-medium font-body hover:bg-primary/90 transition-colors"
+                      >
+                        <MessageCircle className="w-4 h-4" />
+                        Request Quote
+                      </button>
                     </div>
                   </motion.div>
                 </StaggerItem>
