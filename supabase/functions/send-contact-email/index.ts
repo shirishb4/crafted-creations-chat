@@ -51,7 +51,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send notification email to store owner
     const notificationEmail = await resend.emails.send({
       from: "Handmade Stories <onboarding@resend.dev>",
-      to: ["your-email@example.com"], // Replace with your email
+      to: ["shinishb4@gmail.com"],
       subject: `New Contact Form: ${subject}`,
       html: `
         <h2>New Contact Form Submission</h2>
