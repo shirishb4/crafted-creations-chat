@@ -10,7 +10,6 @@ const featuredItems = [
     id: 1,
     title: "Dreamy Clay Castle",
     category: "Clay Miniature",
-    price: "₹1,299",
     image: miniatureImg,
     badge: "Bestseller",
     badgeColor: "bg-rose text-rose-foreground",
@@ -19,7 +18,6 @@ const featuredItems = [
     id: 2,
     title: "Heart Paper Bouquet",
     category: "Paper Craft",
-    price: "₹599",
     image: paperImg,
     badge: "New",
     badgeColor: "bg-accent text-accent-foreground",
@@ -28,7 +26,6 @@ const featuredItems = [
     id: 3,
     title: "Child Portrait Sketch",
     category: "Original Painting",
-    price: "₹2,499",
     image: paintingsImg,
     badge: "Limited",
     badgeColor: "bg-lavender text-lavender-foreground",
@@ -124,13 +121,6 @@ const FeaturedCreations = () => {
                   <h3 className="text-xl font-heading font-bold text-foreground">
                     {item.title}
                   </h3>
-                  <motion.p 
-                    className="text-2xl font-heading text-primary font-bold"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {item.price}
-                  </motion.p>
                 </div>
               </motion.div>
             </StaggerItem>

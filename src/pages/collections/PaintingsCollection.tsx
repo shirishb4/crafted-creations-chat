@@ -19,7 +19,6 @@ const artworks = [
     image: paintingsImg,
     materials: "Acrylic on Canvas",
     size: "18 x 24 inches",
-    price: "₹2,500",
     story: "A peaceful morning scene capturing the essence of rural life, with soft golden light filtering through the trees and villagers starting their day.",
   },
   {
@@ -28,7 +27,6 @@ const artworks = [
     image: painting1,
     materials: "Watercolor on Paper",
     size: "12 x 16 inches",
-    price: "₹1,800",
     story: "Inspired by the breathtaking sunsets I witnessed during my mountain travels. Each layer of color represents a different emotion.",
   },
   {
@@ -37,7 +35,6 @@ const artworks = [
     image: painting2,
     materials: "Oil on Canvas",
     size: "24 x 30 inches",
-    price: "₹4,500",
     story: "Bold strokes of red and gold expressing the fire within. This piece was created during a burst of creative energy.",
   },
   {
@@ -46,7 +43,6 @@ const artworks = [
     image: paintingsImg,
     materials: "Acrylic on Canvas",
     size: "20 x 28 inches",
-    price: "₹3,200",
     story: "A tranquil countryside scene with rolling hills and a peaceful river, painted during a quiet weekend retreat.",
   },
   {
@@ -55,7 +51,6 @@ const artworks = [
     image: painting1,
     materials: "Watercolor & Ink",
     size: "14 x 18 inches",
-    price: "₹2,100",
     story: "A dreamy interpretation of hope and warmth, using golden hues to represent optimism and new beginnings.",
   },
   {
@@ -64,7 +59,6 @@ const artworks = [
     image: painting2,
     materials: "Mixed Media",
     size: "22 x 26 inches",
-    price: "₹3,800",
     story: "Layers of texture and color come together to create a visual symphony of emotions and movement.",
   },
 ];
@@ -89,7 +83,7 @@ const PaintingsCollection = () => {
   };
 
   const handleWhatsAppEnquiry = (art: typeof artworks[0]) => {
-    const message = `Hi! I'm interested in "${art.title}" (${art.materials}, ${art.size}) priced at ${art.price}. Can you share more details?`;
+    const message = `Hi! I'm interested in "${art.title}" (${art.materials}, ${art.size}). Can you share more details?`;
     window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, "_blank");
   };
 
@@ -155,7 +149,6 @@ const PaintingsCollection = () => {
                         {art.title}
                       </h3>
                       <p className="text-sm text-muted-foreground font-body">{art.size}</p>
-                      <p className="text-lg font-bold text-primary font-body">{art.price}</p>
                     </div>
                   </motion.div>
                 </StaggerItem>
@@ -214,7 +207,6 @@ const PaintingsCollection = () => {
                     <h2 className="text-3xl font-heading font-bold text-foreground mb-2">
                       {selectedArt.title}
                     </h2>
-                    <p className="text-2xl font-bold text-primary">{selectedArt.price}</p>
                   </div>
                   <div className="space-y-4">
                     <div>

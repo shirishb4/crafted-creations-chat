@@ -47,7 +47,7 @@ const ChatBot = () => {
     const lowerMessage = userMessage.toLowerCase();
     
     if (lowerMessage.includes("price") || lowerMessage.includes("cost") || lowerMessage.includes("how much")) {
-      return "Great question! 🎨 Prices vary based on the artwork:\n\n• Paintings: ₹1,500 - ₹5,000\n• Clay Miniatures: ₹800 - ₹2,500\n• Paper Crafts: ₹300 - ₹1,200\n• Wooden Art: ₹1,000 - ₹4,000\n\nFor exact pricing, please message me on WhatsApp! 💬";
+      return "Great question! 🎨 Prices vary based on the artwork, size, and materials used. For pricing details, please message me on WhatsApp and I'll be happy to help! 💬";
     }
     
     if (lowerMessage.includes("custom") || lowerMessage.includes("personalize") || lowerMessage.includes("order")) {
@@ -59,7 +59,7 @@ const ChatBot = () => {
     }
     
     if (lowerMessage.includes("shipping") || lowerMessage.includes("delivery") || lowerMessage.includes("time")) {
-      return "Shipping info 📦:\n\n• Delivery: 5-7 business days\n• Free shipping on orders above ₹1,500\n• Secure packaging for all items\n• Pan-India delivery available!\n\nMessage me on WhatsApp for tracking! 🚚";
+      return "Shipping info 📦:\n\n• Delivery: 5-7 business days\n• Secure packaging for all items\n• Pan-India delivery available!\n\nMessage me on WhatsApp for details! 🚚";
     }
     
     if (lowerMessage.includes("hello") || lowerMessage.includes("hi") || lowerMessage.includes("hey")) {

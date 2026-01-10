@@ -19,7 +19,6 @@ const artworks = [
     image: wood1,
     materials: "Teak Wood & Brass Hinges",
     size: "6 x 4 x 3 inches",
-    price: "₹2,200",
     story: "A beautifully carved jewelry box with intricate floral patterns. Each carving is done by hand, taking several days to complete.",
   },
   {
@@ -28,7 +27,6 @@ const artworks = [
     image: wood2,
     materials: "Carved Pine Wood",
     size: "16 inches diameter",
-    price: "₹3,500",
     story: "A stunning mandala carved into pine wood, creating a mesmerizing centerpiece for any wall. The depth of carving creates beautiful shadow patterns.",
   },
   {
@@ -37,7 +35,6 @@ const artworks = [
     image: woodCraftsImg,
     materials: "Reclaimed Wood & Glass",
     size: "8 x 10 inches",
-    price: "₹950",
     story: "Made from reclaimed wood, each frame tells its own story through unique grain patterns and character marks.",
   },
   {
@@ -46,7 +43,6 @@ const artworks = [
     image: wood1,
     materials: "Walnut Wood & Resin",
     size: "4 inches diameter (set of 4)",
-    price: "₹800",
     story: "Beautiful coasters combining natural wood with colored resin. Each set is unique due to the natural variations in wood grain.",
   },
   {
@@ -55,7 +51,6 @@ const artworks = [
     image: wood2,
     materials: "Carved Mango Wood",
     size: "12 x 6 inches",
-    price: "₹1,100",
     story: "Keep your keys organized in style with this hand-carved key holder featuring traditional motifs.",
   },
   {
@@ -64,7 +59,6 @@ const artworks = [
     image: woodCraftsImg,
     materials: "Oak Wood & Metal Letters",
     size: "Custom sizes",
-    price: "₹1,500-2,500",
     story: "Custom name plates crafted to welcome guests to your home. Each piece is personalized and unique.",
   },
 ];
@@ -89,7 +83,7 @@ const WoodenCrafts = () => {
   };
 
   const handleWhatsAppEnquiry = (art: typeof artworks[0]) => {
-    const message = `Hi! I'm interested in "${art.title}" (${art.materials}, ${art.size}) priced at ${art.price}. Can you share more details?`;
+    const message = `Hi! I'm interested in "${art.title}" (${art.materials}, ${art.size}). Can you share more details?`;
     window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, "_blank");
   };
 
@@ -155,7 +149,6 @@ const WoodenCrafts = () => {
                         {art.title}
                       </h3>
                       <p className="text-sm text-muted-foreground font-body">{art.size}</p>
-                      <p className="text-lg font-bold text-primary font-body">{art.price}</p>
                     </div>
                   </motion.div>
                 </StaggerItem>
@@ -214,7 +207,6 @@ const WoodenCrafts = () => {
                     <h2 className="text-3xl font-heading font-bold text-foreground mb-2">
                       {selectedArt.title}
                     </h2>
-                    <p className="text-2xl font-bold text-primary">{selectedArt.price}</p>
                   </div>
                   <div className="space-y-4">
                     <div>
