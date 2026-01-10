@@ -1,9 +1,14 @@
 import { motion } from "framer-motion";
-import { Heart, ShoppingBag } from "lucide-react";
+import { Heart, MessageCircle } from "lucide-react";
 import { ScrollReveal, StaggerChildren, StaggerItem } from "@/lib/animations";
 import miniatureImg from "@/assets/miniature.jpg";
 import paperImg from "@/assets/paper.jpg";
 import paintingsImg from "@/assets/paintings.jpg";
+
+const handleWhatsAppEnquiry = (title: string, category: string) => {
+  const message = `Hi! I'm interested in "${title}" (${category}). Can you share the pricing and more details?`;
+  window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, "_blank");
+};
 
 const featuredItems = [
   {
@@ -107,9 +112,10 @@ const FeaturedCreations = () => {
                       className="w-full btn-hero text-base py-3 justify-center"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
+                      onClick={() => handleWhatsAppEnquiry(item.title, item.category)}
                     >
-                      <ShoppingBag className="w-4 h-4" />
-                      Order / Enquire
+                      <MessageCircle className="w-4 h-4" />
+                      Request Quote
                     </motion.button>
                   </motion.div>
                 </div>
