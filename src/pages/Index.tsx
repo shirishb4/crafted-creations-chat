@@ -8,6 +8,7 @@ import Testimonials from "@/components/Testimonials";
 import ConnectSection from "@/components/ConnectSection";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const Index = () => {
   return (
@@ -33,6 +34,7 @@ const Index = () => {
           <ConnectSection />
         </main>
         <Footer />
+        <FloatingWhatsApp />
         <ChatBot />
       </div>
     </>
