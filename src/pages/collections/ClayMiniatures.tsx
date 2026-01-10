@@ -19,7 +19,6 @@ const artworks = [
     image: miniature1,
     materials: "Polymer Clay",
     size: "1-2 inches each",
-    price: "₹350 each",
     story: "An adorable collection of tiny cats and dogs, each with their own personality. Perfect for desk companions or gift giving.",
   },
   {
@@ -28,7 +27,6 @@ const artworks = [
     image: miniature2,
     materials: "Air-dry Clay & Moss",
     size: "4 x 4 inches base",
-    price: "₹1,200",
     story: "A magical miniature world with mushroom houses and tiny flowers. Each piece is carefully crafted to create a whimsical fairy garden scene.",
   },
   {
@@ -37,7 +35,6 @@ const artworks = [
     image: miniatureImg,
     materials: "Polymer Clay",
     size: "0.5-1 inch each",
-    price: "₹450 set",
     story: "Miniature food items that look good enough to eat! Perfect for dollhouse enthusiasts or charm jewelry making.",
   },
   {
@@ -46,7 +43,6 @@ const artworks = [
     image: miniature1,
     materials: "Polymer Clay",
     size: "2-3 inches",
-    price: "₹800 set",
     story: "Meet the friendly gnome family! Each gnome has a unique expression and pose, ready to guard your plants.",
   },
   {
@@ -55,7 +51,6 @@ const artworks = [
     image: miniature2,
     materials: "Air-dry Clay",
     size: "1 inch pots",
-    price: "₹280 each",
     story: "Tiny succulents that never need watering! Perfect for small spaces and they bring a touch of green to any desk.",
   },
   {
@@ -64,7 +59,6 @@ const artworks = [
     image: miniatureImg,
     materials: "Polymer Clay & Wire",
     size: "1.5-2 inches",
-    price: "₹550 each",
     story: "Foxes, rabbits, and owls oh my! These woodland friends are perfect for nature lovers and collectors.",
   },
 ];
@@ -89,7 +83,7 @@ const ClayMiniatures = () => {
   };
 
   const handleWhatsAppEnquiry = (art: typeof artworks[0]) => {
-    const message = `Hi! I'm interested in "${art.title}" (${art.materials}, ${art.size}) priced at ${art.price}. Can you share more details?`;
+    const message = `Hi! I'm interested in "${art.title}" (${art.materials}, ${art.size}). Can you share more details?`;
     window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, "_blank");
   };
 
@@ -155,7 +149,6 @@ const ClayMiniatures = () => {
                         {art.title}
                       </h3>
                       <p className="text-sm text-muted-foreground font-body">{art.size}</p>
-                      <p className="text-lg font-bold text-primary font-body">{art.price}</p>
                     </div>
                   </motion.div>
                 </StaggerItem>
@@ -214,7 +207,6 @@ const ClayMiniatures = () => {
                     <h2 className="text-3xl font-heading font-bold text-foreground mb-2">
                       {selectedArt.title}
                     </h2>
-                    <p className="text-2xl font-bold text-primary">{selectedArt.price}</p>
                   </div>
                   <div className="space-y-4">
                     <div>

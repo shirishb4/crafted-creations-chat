@@ -19,7 +19,6 @@ const artworks = [
     image: bottle1,
     materials: "Recycled Glass Bottle, LED Lights & Paint",
     size: "12 inches tall",
-    price: "₹850",
     story: "Transform any corner into a magical space with this hand-painted bottle filled with warm fairy lights. Each flower is carefully painted by hand.",
   },
   {
@@ -28,7 +27,6 @@ const artworks = [
     image: bottle2,
     materials: "Recycled Wine Bottle & Acrylic Paint",
     size: "13 inches tall",
-    price: "₹1,100",
     story: "Intricate mandala patterns in vibrant colors turn this recycled bottle into a stunning centerpiece. Hours of detailed work in every design.",
   },
   {
@@ -37,7 +35,6 @@ const artworks = [
     image: bottlesImg,
     materials: "Mixed Bottles, Jute & Paint",
     size: "Set of 3 (various sizes)",
-    price: "₹1,800",
     story: "A collection of decorated bottles in bohemian style. Perfect as a set or displayed individually for that eclectic home vibe.",
   },
   {
@@ -46,7 +43,6 @@ const artworks = [
     image: bottle1,
     materials: "Glass Bottle, LED & Spray Paint",
     size: "10 inches tall",
-    price: "₹950",
     story: "A mesmerizing galaxy effect bottle that glows beautifully in the dark. Perfect for bedrooms and creating a dreamy atmosphere.",
   },
   {
@@ -55,7 +51,6 @@ const artworks = [
     image: bottle2,
     materials: "Glass Bottle, Lace & Pearls",
     size: "11 inches tall",
-    price: "₹750",
     story: "Elegant vintage-inspired bottle wrapped in delicate lace and adorned with pearls. Perfect for weddings or romantic decor.",
   },
   {
@@ -64,7 +59,6 @@ const artworks = [
     image: bottlesImg,
     materials: "Recycled Bottles & Natural Dyes",
     size: "Various sizes",
-    price: "₹600-1,200",
     story: "Bottles painted with nature-inspired scenes using eco-friendly dyes. Each piece celebrates the beauty of our natural world.",
   },
 ];
@@ -89,7 +83,7 @@ const BottleArt = () => {
   };
 
   const handleWhatsAppEnquiry = (art: typeof artworks[0]) => {
-    const message = `Hi! I'm interested in "${art.title}" (${art.materials}, ${art.size}) priced at ${art.price}. Can you share more details?`;
+    const message = `Hi! I'm interested in "${art.title}" (${art.materials}, ${art.size}). Can you share more details?`;
     window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, "_blank");
   };
 
@@ -155,7 +149,6 @@ const BottleArt = () => {
                         {art.title}
                       </h3>
                       <p className="text-sm text-muted-foreground font-body">{art.size}</p>
-                      <p className="text-lg font-bold text-primary font-body">{art.price}</p>
                     </div>
                   </motion.div>
                 </StaggerItem>
@@ -214,7 +207,6 @@ const BottleArt = () => {
                     <h2 className="text-3xl font-heading font-bold text-foreground mb-2">
                       {selectedArt.title}
                     </h2>
-                    <p className="text-2xl font-bold text-primary">{selectedArt.price}</p>
                   </div>
                   <div className="space-y-4">
                     <div>
