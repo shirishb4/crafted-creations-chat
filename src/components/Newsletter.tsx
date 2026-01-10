@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Mail, Sparkles, Check } from "lucide-react";
 import { ScrollReveal } from "@/lib/animations";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const Newsletter = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +18,7 @@ const Newsletter = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    const trimmedEmail = email.trim();
+    const trimmedEmail = email.trim().toLowerCase();
     
     if (!trimmedEmail) {
       toast.error("Please enter your email address");
@@ -31,13 +32,30 @@ const Newsletter = () => {
 
     setIsSubmitting(true);
 
-    // Simulate API call - in production, this would save to a database
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const { error } = await supabase
+        .from("newsletter_subscribers")
+        .insert({ email: trimmedEmail });
 
-    setIsSubmitting(false);
-    setIsSubscribed(true);
-    setEmail("");
-    toast.success("Welcome to our creative family! 🎨");
+      if (error) {
+        if (error.code === "23505") {
+          // Unique constraint violation - already subscribed
+          toast.info("You're already subscribed! 🎉");
+          setIsSubscribed(true);
+        } else {
+          throw error;
+        }
+      } else {
+        setIsSubscribed(true);
+        toast.success("Welcome to our creative family! 🎨");
+      }
+      setEmail("");
+    } catch (error: any) {
+      console.error("Newsletter subscription error:", error);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
