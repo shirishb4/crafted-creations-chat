@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ShopCategories from "@/components/ShopCategories";
 import FeaturedCreations from "@/components/FeaturedCreations";
+import Testimonials from "@/components/Testimonials";
 import ConnectSection from "@/components/ConnectSection";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
@@ -28,6 +29,7 @@ const Index = () => {
           <AboutSection />
           <ShopCategories />
           <FeaturedCreations />
+          <Testimonials />
           <ConnectSection />
         </main>
         <Footer />
