@@ -1,13 +1,23 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, ShoppingBag } from "lucide-react";
+import { Menu, X, ShoppingBag, User, LogOut } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import { useAuth } from "@/hooks/useAuth";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { user, loading, signOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +38,11 @@ const Navbar = () => {
       }, 100);
     }
   }, [location]);
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/');
+  };
 
   const navLinks = [
     { name: "Home", href: "/", isRoute: true },
@@ -89,6 +104,37 @@ const Navbar = () => {
               )
             )}
             <ThemeToggle />
+            
+            {/* Auth Section */}
+            {!loading && (
+              user ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="icon" className="rounded-full">
+                      <User className="w-5 h-5" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-48">
+                    <DropdownMenuItem className="text-muted-foreground text-sm" disabled>
+                      {user.email}
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={handleSignOut} className="text-destructive cursor-pointer">
+                      <LogOut className="w-4 h-4 mr-2" />
+                      Sign Out
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Link to="/login">
+                  <Button variant="outline" size="sm" className="gap-2">
+                    <User className="w-4 h-4" />
+                    Sign In
+                  </Button>
+                </Link>
+              )
+            )}
+            
             <button
               onClick={() => handleHashLink("/#shop")}
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold font-body text-primary-foreground transition-all duration-300 hover:scale-105"
@@ -141,6 +187,35 @@ const Navbar = () => {
                 </button>
               )
             )}
+            
+            {/* Mobile Auth Section */}
+            {!loading && (
+              user ? (
+                <div className="border-t border-border pt-4 space-y-2">
+                  <p className="text-sm text-muted-foreground">{user.email}</p>
+                  <button
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      handleSignOut();
+                    }}
+                    className="flex items-center gap-2 text-destructive font-medium py-2"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    Sign Out
+                  </button>
+                </div>
+              ) : (
+                <Link
+                  to="/login"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center gap-2 font-body font-medium text-primary py-2"
+                >
+                  <User className="w-4 h-4" />
+                  Sign In
+                </Link>
+              )
+            )}
+            
             <div className="flex items-center gap-4 pt-2">
               <ThemeToggle />
               <span className="text-sm text-muted-foreground font-body">Toggle theme</span>
