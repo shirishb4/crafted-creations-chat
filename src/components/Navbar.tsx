@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ShoppingBag } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -65,7 +66,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) =>
               link.isRoute ? (
                 <Link
@@ -87,6 +88,7 @@ const Navbar = () => {
                 </button>
               )
             )}
+            <ThemeToggle />
             <button
               onClick={() => handleHashLink("/#shop")}
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold font-body text-primary-foreground transition-all duration-300 hover:scale-105"
@@ -139,6 +141,10 @@ const Navbar = () => {
                 </button>
               )
             )}
+            <div className="flex items-center gap-4 pt-2">
+              <ThemeToggle />
+              <span className="text-sm text-muted-foreground font-body">Toggle theme</span>
+            </div>
             <button
               onClick={() => {
                 setIsMobileMenuOpen(false);
