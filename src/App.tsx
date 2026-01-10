@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import Gallery from "./pages/Gallery";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 import PaintingsCollection from "./pages/collections/PaintingsCollection";
 import ClayMiniatures from "./pages/collections/ClayMiniatures";
@@ -43,6 +44,7 @@ const AnimatedRoutes = () => {
         <Routes location={location}>
           <Route path="/" element={<Index />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/collections/paintings" element={<PaintingsCollection />} />
           <Route path="/collections/clay-miniatures" element={<ClayMiniatures />} />
           <Route path="/collections/paper-crafts" element={<PaperCrafts />} />
